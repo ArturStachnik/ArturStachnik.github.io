@@ -51,9 +51,9 @@ h2 {
 }
 
 .profile-img {
-    max-width: 300px;
-    height: 600px;
-    border-radius: 2%;
+    max-width: 315px;
+    height: auto;
+    border-radius: 3%;
     margin-right: 20px;
 }
 
