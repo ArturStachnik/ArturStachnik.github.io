@@ -47,7 +47,7 @@ h2 {
 .about-container {
     display: flex;
     align-items: center;
-	text-align: justify;
+    text-align: justify;
 }
 
 .profile-img {
@@ -83,4 +83,39 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* Research section styles */
+.research-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.research-item {
+    background: #fafafa;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.research-item:hover {
+    background: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.research-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.research-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.research-item p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: #666;
 }
