@@ -47,7 +47,6 @@ h2 {
 .about-container {
     display: flex;
     align-items: center;
-	text-align: justify;
 }
 
 .profile-img {
