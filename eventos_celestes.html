@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Celestes</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1500px; /* Aumenta el ancho máximo */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #004085;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .table-container { /* Nueva clase para el contenedor de la tabla */
+            overflow-x: auto; /* Permite hacer scroll horizontal si es necesario */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #chart-container {
+            margin-top: 20px;
+            position: relative;
+            height: 400px; /* Ajusta la altura */
+            width: 100%; /* Cambia el ancho para que sea el 100% */
+            margin-left: auto; /* Centra el gráfico */
+            margin-right: auto; /* Centra el gráfico */
+        }
+
+        canvas {
+            /* width y height ya no necesitan ser 100% */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://koza24.pythonanywhere.com/"><h1>Salidas y Puestas de Sol</h1></a>
+        <p>Salidas y Puestas de Sol para los 15 próximos días en la ubicación seleccionada</p>
+        <div class="table-container"> <!-- Añade la clase al contenedor de la tabla -->
+            <table>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Alba Astronómico</th>
+                    <th>Alba Náutico</th>
+                    <th>Alba Civil</th>
+                    <th>Mediodía Solar</th>
+                    <th>Crepúsculo Civil</th>
+                    <th>Crepúsculo Náutico</th>
+                    <th>Crepúsculo Astronómico</th>
+                    <th>Horas de Luz</th>
+                </tr>
+                {% for fecha, evento in eventos.items() %}
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>{{ evento['Alba Astronómico'] }}</td>
+                    <td>{{ evento['Alba Náutico'] }}</td>
+                    <td>{{ evento['Alba Civil'] }}</td>
+                    <td>{{ evento['Mediodía Solar'] }}</td>
+                    <td>{{ evento['Crepúsculo Civil'] }}</td>
+                    <td>{{ evento['Crepúsculo Náutico'] }}</td>
+                    <td>{{ evento['Crepúsculo Astronómico'] }}</td>
+                    <td>{{ evento['Horas de Luz'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <h2>Progresión de las horas de luz para los próximos 15 días</h2>
+        <div id="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [{% for fecha, evento in eventos.items() %}"{{ fecha }}",{% endfor %}],
+                datasets: [{
+                    label: 'Horas de Luz',
+                    data: [{% for fecha, evento in eventos.items() %}{{ evento['Horas de Luz'].split(' ')[0] }},{% endfor %}],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, // Hace que el gráfico sea responsive
+                maintainAspectRatio: false, // Desactiva el mantenimiento del aspecto para ajustarse al contenedor
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

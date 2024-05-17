@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #004085;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .enlaces {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .enlaces a {
+            display: inline-block;
+            margin: 0 5px; /* Ajuste el valor del margen horizontal según sea necesario */
+            margin-bottom: 10px; /* Añadido para separar los enlaces verticalmente */
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .enlaces a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Herramientas Útiles by Koza</h1>
+        <h2>Salidas y Puestas de Sol para los próximos 15 días</h2>
+        <form action="/eventos" method="post">
+            <label for="sitio">Seleccione el lugar:</label>
+            <select name="sitio" id"sitio">
+                {% for nombre, _ in sitios.items() %}
+                <option value="{{ nombre }}">{{ nombre }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Ver Eventos</button>
+        </form>
+        
+        <!-- Definiciones de Alba/Crepúsculo -->
+        
+        <ul>
+            <p></p>
+            <p></p>
+            <li><strong>Crepúsculo Civil:</strong> El sol se acaba de poner en el horizonte. Todavía se pueden realizar actividades cotidianas sin iluminación artificial (Hora Dorada en fotografía). 0º-6º por debajo del Horizonte.</li>
+            <li><strong>Crepúsculo Náutico:</strong> El sol ilumina poco el cielo pero ya se ven estrellas. Es necesario el uso de iluminación para actividades cotidianas. (Hora Azul en fotografía) 6º-12º por debajo del Horizonte.</li>
+            <li><strong>Crepúsculo Astronómico:</strong> El sol no contribuye a la iluminación del cielo. Fotografía Astronómica y de larga exposición. 12º-18º por debajo del Horizonte.</li>
+            <p></p>
+            <p></p>
+            <p></p>
+        </ul>
+        <!-- Fin de las definiciones -->
+
+        <h2>Calculadora de Distancia al Horizonte</h2>
+        <form id="distanciaForm">
+            <label for="altura">Altura (en metros):</label>
+            <input type="number" id="altura" name="altura" required>
+            <button type="button" onclick="calcularDistancia()">Calcular</button>
+        </form>
+        <p id="resultado"></p>
+
+        <!-- Enlaces recomendados -->
+        <p></p>
+        <p></p>
+        <h2>Enlaces de Interés</h2>
+        <p></p>
+        <p></p>
+        <div class="enlaces">
+            <a href="https://www.swpc.noaa.gov/" target="_blank">NOAA Space Weather</a>
+            <a href="https://www.windy.com/es/-Radar-del-tiempo-radar?radar,41.943,-3.208,6" target="_blank">Windy</a>
+            <a href="https://www.researchgate.net/profile/Artur-Stachnik" target="_blank">Research Gate</a>
+            <a href="https://www.linkedin.com/in/artur-stachnik/" target="_blank">LinkedIn</a>
+            <a href="https://starwalk.space/es/infographics/twilight-and-magic-hours" target="_blank">StarWalk: Twilight and Magic Hours</a>
+        </div>
+        <!-- Fin de enlaces recomendados -->
+
+    </div>
+
+    <script>
+        // Radio de la Tierra en kilómetros (aproximado)
+        var radioTierraKm = 6371;
+
+        function calcularDistancia() {
+            var alturaMetros = parseFloat(document.getElementById('altura').value);
+            var alturaKm = alturaMetros / 1000; // Convertir altura a kilómetros
+            var distancia = Math.sqrt(2 * radioTierraKm * alturaKm);
+            document.getElementById('resultado').textContent = 'La distancia al horizonte es de ' + distancia.toFixed(2) + ' Kilómetros.';
+        }
+    </script>
+</body>
+</html>
