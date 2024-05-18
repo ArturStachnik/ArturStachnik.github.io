@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -62,7 +63,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: mobile;
+    position: relative;
     width: 100%;
     bottom: 0;
 }
@@ -85,37 +86,32 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Research section styles */
-.research-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 
-.research-item {
-    background: #fafafa;
-    padding: 1rem;
-    border-radius: 8px;
-    transition: background 0.3s, box-shadow 0.3s;
-}
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-.research-item:hover {
-    background: #f0f0f0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    .profile-img {
+        margin: 0 auto 20px;
+    }
 
-.research-item a {
-    text-decoration: none;
-    color: #333;
-}
+    section {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
 
-.research-item h3 {
-    margin: 0;
-    font-size: 1.2rem;
-}
+    h2 {
+        font-size: 1.5rem;
+    }
 
-.research-item p {
-    margin: 0.5rem 0 0;
-    font-size: 0.9rem;
-    color: #666;
+    .about-text p {
+        font-size: 1rem;
+    }
 }
