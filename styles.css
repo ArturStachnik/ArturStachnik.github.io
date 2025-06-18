@@ -1,96 +1,133 @@
-/* Estilos generales */
+/* Import Google Font: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Reset and general styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #f9fafb; /* un gris muy claro, moderno */
+    color: #2c3e50; /* color de texto un poco más suave que negro puro */
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+    background: #2c3e50; /* color corporativo oscuro */
+    color: #ecf0f1; /* blanco humo */
+    padding: 1.2rem 0;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: inline-block;
+    margin: 0 18px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #ecf0f1;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #1abc9c; /* verde agua para hover */
+    outline: none;
+}
+
+/* Sections */
 section {
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 800px;
+    padding: 2.5rem 1.5rem;
+    margin: 3rem auto;
+    max-width: 900px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(44, 62, 80, 0.1);
 }
 
 h2 {
-    color: #333;
-    border-bottom: 2px solid #f4f4f4;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    color: #2c3e50;
+    border-bottom: 3px solid #1abc9c; /* verde agua */
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
 }
 
 .about-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 2rem;
     text-align: justify;
 }
 
 .profile-img {
-    max-width: 315px;
+    max-width: 320px;
     height: auto;
-    border-radius: 3%;
-    margin-right: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(44, 62, 80, 0.15);
+    flex-shrink: 0;
 }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: relative;
-    width: 100%;
-    bottom: 0;
+/* Paragraphs inside about-text */
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: #34495e;
 }
 
+/* Lists styling */
 ul {
-    list-style: none;
-    padding: 0;
+    list-style: disc inside;
+    color: #34495e;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-left: 1rem;
 }
 
 ul li {
-    margin: 0.5rem 0;
+    margin-bottom: 0.7rem;
 }
 
+/* Links */
 a {
-    color: #333;
+    color: #1abc9c;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-a:hover {
+a:hover,
+a:focus {
+    color: #16a085;
     text-decoration: underline;
+    outline: none;
 }
 
-/* Media Queries para dispositivos móviles */
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+/* Navigation responsive */
 @media (max-width: 768px) {
     nav ul li {
         display: block;
-        margin: 10px 0;
+        margin: 12px 0;
     }
 
     .about-container {
@@ -99,19 +136,84 @@ a:hover {
     }
 
     .profile-img {
-        margin: 0 auto 20px;
+        margin: 0 auto 1.5rem;
+        max-width: 80vw;
     }
 
     section {
-        padding: 1rem;
-        margin: 1rem auto;
+        padding: 1.5rem 1rem;
+        margin: 2rem auto;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
     }
 
     .about-text p {
         font-size: 1rem;
     }
+}
+
+/* Teaching & research containers */
+/* Add spacing and neat layout for lists */
+.teaching-container,
+.research-container,
+.project-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.teaching-item,
+.research-item,
+.project-item {
+    border-left: 4px solid #1abc9c;
+    padding-left: 1rem;
+    background: #f0f7f7;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.teaching-item:hover,
+.research-item:hover,
+.project-item:hover {
+    background: #d1f0ed;
+}
+
+/* Make research and project titles stand out */
+.research-item h3,
+.project-item h3,
+.teaching-item h3 {
+    margin: 0 0 0.4rem 0;
+    color: #16a085;
+}
+
+/* Contact list */
+#contact ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding-left: 0;
+    justify-content: center;
+}
+
+#contact ul li {
+    margin: 0;
+}
+
+#contact ul li a {
+    background: #1abc9c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+#contact ul li a:hover,
+#contact ul li a:focus {
+    background: #16a085;
+    outline: none;
 }
