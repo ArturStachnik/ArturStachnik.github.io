@@ -7,13 +7,13 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f9fafb; /* un gris muy claro, moderno */
-    color: #2c3e50; /* color de texto un poco más suave que negro puro */
+    background-color: #f9fafb; /* Very light gray */
+    color: #2c3e50; /* Soft dark blue-gray */
 }
 
 header {
-    background: #2c3e50; /* color corporativo oscuro */
-    color: #ecf0f1; /* blanco humo */
+    background: #2c3e50; /* Dark blue-gray */
+    color: #ecf0f1; /* Light gray */
     padding: 1.2rem 0;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -39,7 +39,7 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:focus {
-    color: #1abc9c; /* verde agua para hover */
+    color: #1abc9c; /* Aquamarine */
     outline: none;
 }
 
@@ -55,7 +55,7 @@ section {
 
 h2 {
     color: #2c3e50;
-    border-bottom: 3px solid #1abc9c; /* verde agua */
+    border-bottom: 3px solid #1abc9c; /* Aquamarine */
     padding-bottom: 12px;
     margin-bottom: 28px;
     font-weight: 700;
