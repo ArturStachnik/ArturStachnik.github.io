@@ -217,3 +217,36 @@ footer {
     background: #16a085;
     outline: none;
 }
+
+/* ====== New styling for industry-solutions as list items ====== */
+
+.industry-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.industry-item {
+    margin-bottom: 2rem;
+}
+
+.industry-item strong {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.industry-description {
+    color: #34495e;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+}
+
+.industry-item ul {
+    list-style: disc inside;
+    margin-left: 1rem;
+    color: #34495e;
+}
