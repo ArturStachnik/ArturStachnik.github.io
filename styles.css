@@ -609,6 +609,53 @@ img { max-width: 100%; display: block; }
    Teaching
    ===================================================== */
 
+.supervision-feature {
+  padding: 1.75rem 2rem;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+}
+
+.supervision-label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--warm);
+  margin-bottom: 0.6rem;
+}
+
+.supervision-feature h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.supervision-meta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.95rem;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.teaching-subheading {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
 .teaching-list {
   list-style: none;
   padding: 0;
