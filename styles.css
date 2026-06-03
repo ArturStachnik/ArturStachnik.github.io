@@ -34,6 +34,38 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Accessibility: skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.75rem 1.25rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  border: none;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -350,6 +382,10 @@ img { max-width: 100%; display: block; }
   background: var(--bg-soft);
   border-radius: 2px;
   border-left: 3px solid var(--accent);
+}
+
+.card-mini-honor {
+  border-left-color: var(--warm);
 }
 
 .card-mini h4 {
